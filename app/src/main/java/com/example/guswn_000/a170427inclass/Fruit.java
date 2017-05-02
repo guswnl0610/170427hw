@@ -11,15 +11,12 @@ public class Fruit
     String name;
     int imgno;
     String price;
-    TextView pricetv;
+//    TextView pricetv;
+    final static int imglist[] = {R.drawable.abocado,R.drawable.banana,R.drawable.cherry,R.drawable.cranberry,
+            R.drawable.grape,R.drawable.kiwi,R.drawable.orange,R.drawable.watermelon};
 
-
-    final static int imglist[] = {R.drawable.abocado,R.drawable.watermelon,R.drawable.orange,R.drawable.banana,
-            R.drawable.cherry,R.drawable.cranberry,R.drawable.grape,R.drawable.kiwi};
-
-
-
-    public Fruit(String name, int imgno, String price) {
+    public Fruit(String name, int imgno, String price)
+    {
         this.name = name;
         this.imgno = imgno;
         this.price = price;
@@ -48,12 +45,12 @@ public class Fruit
     public void setPrice(String price) {
         this.price = price;
     }
-
-    public void setPricetv(TextView pricetv) {
-        this.pricetv = pricetv;
-    }
-
-    public TextView getPricetv() {
-        return pricetv;
-    }
+//
+//    public void setPricetv(TextView pricetv) {
+//        this.pricetv = pricetv;
+//    }
+//
+//    public TextView getPricetv() {
+//        return pricetv;
+//    }
 }

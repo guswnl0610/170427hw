@@ -23,18 +23,18 @@ public class GridItem extends LinearLayout
 
     public void init(Context context)
     {
-        View view = LayoutInflater.from(context).inflate(R.layout.griditem,null);
-
+        View view = LayoutInflater.from(context).inflate(R.layout.griditem,this);
         tv = (TextView)findViewById(R.id.tv1);
         tv2 = (TextView)findViewById(R.id.tv2);
         iv = (ImageView)findViewById(R.id.img1);
-
     }
-    public void setData(Fruit one)
+    public void setData(Fruit one,boolean visible)
     {
         tv.setText(one.getName());
         tv2.setText(one.getPrice());
         iv.setImageResource(one.getImgno());
+        if(visible){tv2.setVisibility(VISIBLE);}
+        else {tv2.setVisibility(INVISIBLE);}
     }
 
 }

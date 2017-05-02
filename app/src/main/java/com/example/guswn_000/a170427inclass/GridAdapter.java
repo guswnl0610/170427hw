@@ -19,6 +19,7 @@ public class GridAdapter extends BaseAdapter
 {
     Context context;
     ArrayList<Fruit> fruit = new ArrayList<>();
+    boolean visible = false;
 
 
     public GridAdapter(Context context, ArrayList<Fruit> fruit) {
@@ -44,45 +45,46 @@ public class GridAdapter extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-
-        if(convertView == null)
-        {
-            convertView = LayoutInflater.from(context).inflate(R.layout.griditem,null);
-        }
-        final TextView tv = (TextView)convertView.findViewById(R.id.tv1);
-        final ImageView iv = (ImageView)convertView.findViewById(R.id.img1);
-        final TextView tv2 = (TextView)convertView.findViewById(R.id.tv2);
-        tv.setText(fruit.get(position).name);
-        tv2.setText(fruit.get(position).getPrice());
-        iv.setImageResource(fruit.get(position).imgno);
-
-        Fruit one = fruit.get(position);
-        one.setPricetv(tv2);
-
 //        if(convertView == null)
 //        {
-//            convertView = new GridItem(context);
+//            convertView = LayoutInflater.from(context).inflate(R.layout.griditem,null);
 //        }
-//        ((GridItem)convertView).setData(fruit.get(position));
+//        final TextView tv = (TextView)convertView.findViewById(R.id.tv1);
+//        final ImageView iv = (ImageView)convertView.findViewById(R.id.img1);
+//        final TextView tv2 = (TextView)convertView.findViewById(R.id.tv2);
+//        tv.setText(fruit.get(position).name);
+//        tv2.setText(fruit.get(position).getPrice());
+//        iv.setImageResource(fruit.get(position).imgno);
+//
+//        Fruit one = fruit.get(position);
+//        one.setPricetv(tv2);
+
+        if(convertView == null)
+            convertView = new GridItem(context);
+        ((GridItem)convertView).setData(fruit.get(position),visible);
         return convertView;
     }
 
-    public void showprice(int show)
+    public void showprice(boolean visible)
     {
-        if(show == 0)
-        {
-            for (int i = 0; i < fruit.size() ; i++)
-            {
-                fruit.get(i).getPricetv().setVisibility(View.VISIBLE);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < fruit.size() ; i++)
-            {
-                fruit.get(i).getPricetv().setVisibility(View.INVISIBLE);
-            }
-        }
-
+//        if(show == 0)
+//        {
+//            for (int i = 0 ; i < fruit.size() ; i++)
+//            {
+//                fruit.get(i).getPricetv().setVisibility(View.VISIBLE);
+//            }
+//        }
+//        else
+//        {
+//            for (int i = 0; i < fruit.size() ; i++)
+//            {
+//                fruit.get(i).getPricetv().setVisibility(View.INVISIBLE);
+//            }
+//        }
+        this.visible = visible;
+        this.notifyDataSetChanged();
     }
+
+
+
 }
